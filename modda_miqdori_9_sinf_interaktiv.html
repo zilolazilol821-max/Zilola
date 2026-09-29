@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>9-sinf Fizika — Modda miqdori</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f7fb;color:#172033}
+header{background:#243b64;color:white;padding:22px;text-align:center}
+main{max-width:1000px;margin:auto;padding:18px}
+.card{background:white;border-radius:16px;padding:20px;margin:16px 0;box-shadow:0 4px 14px #0001}
+h2{color:#243b64}.formula{font-size:26px;font-weight:bold;text-align:center;padding:14px;background:#eef3ff;border-radius:10px}
+label{display:block;margin:12px 0 5px;font-weight:bold}
+input[type=range]{width:100%}
+.value{font-size:20px;font-weight:bold}
+.particles{display:flex;flex-wrap:wrap;gap:6px;min-height:120px;padding:12px;border:2px dashed #aab7d1;border-radius:12px}
+.dot{width:14px;height:14px;border-radius:50%;background:#4b78c2;animation:float 1.8s infinite alternate ease-in-out}
+@keyframes float{to{transform:translateY(-8px) translateX(4px)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+button{border:0;border-radius:9px;padding:10px 14px;background:#243b64;color:white;cursor:pointer;margin:4px}
+.answer{font-weight:bold;font-size:19px;margin-top:10px}
+.small{color:#536078}
+.problem{border-left:5px solid #243b64;padding-left:14px;margin:18px 0}
+</style>
+</head>
+<body>
+<header>
+<h1>9-sinf Fizika: MODDA MIQDORI</h1>
+<p>Interaktiv simulyatsiya • Animatsiya • Formulalar • Masalalar</p>
+</header>
+<main>
+
+<div class="card">
+<h2>1. Modda miqdori va mol</h2>
+<p><b>Modda miqdori</b> — moddadagi zarrachalar (molekulalar, atomlar yoki ionlar) sonini ifodalovchi fizik kattalik. Belgisi <b>ν (nyu)</b>, birligi <b>mol</b>.</p>
+<p><b>1 mol</b> modda tarkibida <b>6,02 × 10²³</b> ta elementar zarracha bo‘ladi.</p>
+<div class="formula">ν — mol</div>
+<p class="small">Vizual g‘oya: 1 molni “juda katta miqdordagi bir xil zarrachalar to‘plami” sifatida tasvirlash. Real hayotda bunday zarrachalarni bittalab sanab bo‘lmaydi.</p>
+</div>
+
+<div class="card">
+<h2>Interaktiv simulyatsiya 1 — ν o‘zgarganda zarrachalar</h2>
+<label>Modda miqdori: <span id="mol1" class="value">1</span> mol</label>
+<input id="slider1" type="range" min="0.5" max="3" step="0.5" value="1">
+<p>Molekulalar soni: <b id="num1"></b> (haqiqiy son 6,02×10²³ ga ko‘payadi)</p>
+<div id="particles1" class="particles"></div>
+<p class="small">Ekrandagi nuqtalar — 6,02×10²³ zarrachani to‘liq chizish emas, balki ularning miqdoriy nisbatini ko‘rsatadigan model.</p>
+</div>
+
+<div class="card">
+<h2>2. Avogadro doimiysi</h2>
+<p><b>Avogadro doimiysi</b> 1 mol moddadagi zarrachalar sonini bildiradi.</p>
+<div class="formula">Nₐ = 6,02 × 10²³ mol⁻¹</div>
+<p>Moddadagi zarrachalar soni:</p>
+<div class="formula">N = ν · Nₐ</div>
+<div class="grid">
+<div><b>0,5 mol:</b> N = 3,01 × 10²³</div>
+<div><b>1 mol:</b> N = 6,02 × 10²³</div>
+<div><b>2 mol:</b> N = 1,204 × 10²⁴</div>
+<div><b>3 mol:</b> N = 1,806 × 10²⁴</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Interaktiv simulyatsiya 2 — Avogadro soni</h2>
+<label>ν = <span id="mol2" class="value">1</span> mol</label>
+<input id="slider2" type="range" min="0.5" max="3" step="0.5" value="1">
+<div class="formula" id="avogadroResult"></div>
+<div id="particles2" class="particles"></div>
+</div>
+
+<div class="card">
+<h2>3. Modda miqdorini hisoblash</h2>
+<div class="grid">
+<div class="formula">ν = m / M</div>
+<div class="formula">N = ν · Nₐ</div>
+<div class="formula">ν = N / Nₐ</div>
+</div>
+<p><b>ν</b> — modda miqdori (mol); <b>m</b> — massa (g); <b>M</b> — molyar massa (g/mol); <b>N</b> — zarrachalar soni; <b>Nₐ</b> — Avogadro doimiysi.</p>
+<p><b>Eslatma:</b> m va M bir xil massa birliklarida olinadi: masalan, g va g/mol.</p>
+</div>
+
+<div class="card">
+<h2>Interaktiv simulyatsiya 3 — Massa, molyar massa va mol</h2>
+<label>Massa m = <span id="massVal" class="value">18</span> g</label>
+<input id="mass" type="range" min="1" max="200" value="18">
+<label>Molyar massa M = <span id="molarVal" class="value">18</span> g/mol</label>
+<input id="molar" type="range" min="1" max="100" value="18">
+<div class="formula" id="calcResult"></div>
+</div>
+
+<div class="card">
+<h2>Masalalar</h2>
+<div class="problem"><b>Oson 1.</b> 36 g suvning (H₂O, M=18 g/mol) modda miqdorini toping.<br>
+Berilgan: m=36 g, M=18 g/mol.<br>Formula: ν=m/M.<br>Yechish: ν=36/18=2 mol.<br><b>Javob: 2 mol.</b></div>
+<div class="problem"><b>Oson 2.</b> 3 mol kislorod molekulalari sonini toping.<br>
+Formula: N=νNₐ.<br>Yechish: N=3·6,02×10²³=1,806×10²⁴.<br><b>Javob: 1,806×10²⁴ ta molekula.</b></div>
+<div class="problem"><b>Oson 3.</b> 0,5 mol moddadagi zarrachalar soni?<br>
+N=0,5·6,02×10²³=3,01×10²³.<br><b>Javob: 3,01×10²³.</b></div>
+<div class="problem"><b>O‘rtacha 1.</b> 90 g suvning modda miqdori? M(H₂O)=18 g/mol.<br>
+ν=90/18=5 mol.<br><b>Javob: 5 mol.</b></div>
+<div class="problem"><b>O‘rtacha 2.</b> 2,5 mol CO₂ tarkibidagi molekulalar soni.<br>
+N=2,5·6,02×10²³=1,505×10²⁴.<br><b>Javob: 1,505×10²⁴.</b></div>
+<div class="problem"><b>O‘rtacha 3.</b> 1,204×10²⁴ ta zarracha necha mol?<br>
+ν=N/Nₐ=(1,204×10²⁴)/(6,02×10²³)=2 mol.<br><b>Javob: 2 mol.</b></div>
+<div class="problem"><b>Murakkabroq 1.</b> 44 g CO₂ berilgan. M(CO₂)=44 g/mol. Molekulalar sonini toping.<br>
+ν=44/44=1 mol; N=1·6,02×10²³.<br><b>Javob: 6,02×10²³ ta molekula.</b></div>
+<div class="problem"><b>Murakkabroq 2.</b> 98 g H₂SO₄ berilgan. M(H₂SO₄)=98 g/mol. Molekulalar sonini toping.<br>
+ν=98/98=1 mol; N=6,02×10²³.<br><b>Javob: 6,02×10²³ ta molekula.</b></div>
+</div>
+
+<div class="card">
+<h2>Animatsiya ssenariylari</h2>
+<ol>
+<li><b>“Zarrachalar ko‘payishi”:</b> 0,5 mol → 1 mol → 2 mol → 3 mol. Har bosqichda nuqtalar soni ko‘payadi.</li>
+<li><b>“Avogadro zinapoyasi”:</b> 1 mol → 6,02×10²³ zarracha; 2 mol → 1,204×10²⁴; 3 mol → 1,806×10²⁴.</li>
+<li><b>“Masala algoritmi”:</b> Shart → Berilgan → Formula → Sonlarni qo‘yish → Hisoblash → Javob.</li>
+</ol>
+</div>
+
+<div class="card">
+<h2>5 ta test</h2>
+<ol>
+<li>Modda miqdorining SI birligi qaysi? A) kg B) mol C) g D) m³</li>
+<li>Avogadro doimiysi qiymati? A) 9,8 B) 3,14 C) 6,02×10²³ D) 1,6×10⁻¹⁹</li>
+<li>2 mol moddadagi zarrachalar soni? A) 6,02×10²³ B) 3,01×10²³ C) 1,204×10²⁴ D) 12,04</li>
+<li>18 g suvning M=18 g/mol bo‘lsa, ν nechaga teng? A) 0,5 B) 1 C) 18 D) 36</li>
+<li>Zarrachalar sonidan modda miqdorini topish formulasi? A) ν=m/M B) N=νNₐ C) ν=N/Nₐ D) M=mν</li>
+</ol>
+<p><b>Javoblar:</b> 1-B, 2-C, 3-C, 4-B, 5-C.</p>
+</div>
+
+<div class="card">
+<h2>Xulosa</h2>
+<p>Modda miqdori <b>ν</b> bilan belgilanadi va <b>mol</b>da o‘lchanadi. 1 mol modda <b>6,02×10²³</b> ta zarrachani o‘z ichiga oladi. Asosiy formulalar: <b>ν=m/M</b>, <b>N=νNₐ</b>, <b>ν=N/Nₐ</b>.</p>
+</div>
+</main>
+<script>
+function dots(el, n){
+  el.innerHTML="";
+  let count=Math.max(5,Math.round(n*12));
+  for(let i=0;i<count;i++){let d=document.createElement("span");d.className="dot";d.style.animationDelay=(i%8)*0.08+"s";el.appendChild(d);}
+}
+const s1=document.getElementById("slider1");
+function update1(){let v=+s1.value;document.getElementById("mol1").textContent=v;document.getElementById("num1").textContent=(v*6.02).toFixed(2)+" × 10²³";dots(document.getElementById("particles1"),v);}
+s1.oninput=update1;update1();
+
+const s2=document.getElementById("slider2");
+function update2(){let v=+s2.value;document.getElementById("mol2").textContent=v;document.getElementById("avogadroResult").textContent="N = "+(v*6.02).toFixed(2)+" × 10²³ ta zarracha";dots(document.getElementById("particles2"),v);}
+s2.oninput=update2;update2();
+
+const mass=document.getElementById("mass"), molar=document.getElementById("molar");
+function update3(){let m=+mass.value,M=+molar.value;document.getElementById("massVal").textContent=m;document.getElementById("molarVal").textContent=M;document.getElementById("calcResult").textContent="ν = "+(m/M).toFixed(3)+" mol";}
+mass.oninput=update3;molar.oninput=update3;update3();
+</script>
+</body>
+</html>
